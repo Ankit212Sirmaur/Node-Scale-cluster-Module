@@ -14,7 +14,7 @@ app.get('/', (req, res) =>{
     cluster.worker.kill();
 });
 
-if (cluster.isMaster) {
+if (cluster.isPrimary) {
   for (let i = 0; i < totalCPUs; i++) {
     cluster.fork();
   }
